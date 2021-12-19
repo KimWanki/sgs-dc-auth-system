@@ -11,6 +11,8 @@ class SignupNickNameViewController: UIViewController {
     let networkingServiceManager = NetworkServiceManager()
     let alertManager = AlertManager()
     
+    var currentInfo = [String: Any]()
+    
     lazy var passwordLabel: UILabel = {
         let label = UILabel()
         label.text = "사용할 닉네임을 입력해주세요."
@@ -85,11 +87,55 @@ extension SignupNickNameViewController {
     
     @objc
     private func didTapConfirmButton(_ sender: Any) {
-        guard let nickname = self.textField.text
-        else { return }
-        
-        
-        self.dismiss(animated: true)
+        guard let nickname = self.textField.text,
+              nickname.count > 0
+        else {
+            let alert = alertManager.alert(message: "닉네임을 입력해주세요")
+            self.present(alert, animated: true)
+            return
+        }
+        self.currentInfo["nickname"] = nickname
+        let signupInfo = SignupModel(email: currentInfo["email"] as! String,
+                                     password: currentInfo["password"] as! String,
+                                     name: currentInfo["name"] as! String,
+                                     nickname: currentInfo["nickname"] as! String)
+        signupRequest(endpoint: "/users/signup", signupModel: signupInfo)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+
+    private func signupRequest(endpoint: String, parameters: [String: Any]) {
+//        networkingServiceManager.request(endpoint: endpoint,
+//                                         parameters: parameters) { [weak self] (result) in
+//            switch result {
+//            case .success(let key):
+//                self?.dismiss(animated: true, completion: nil)
+//
+//            case .failure(let error):
+//                guard let alert = self?.alertManager.alert(message: "😅") else { return }
+//                #if DEBUG
+//                print(error.localizedDescription)
+//                #endif
+//                self?.present(alert, animated: true)
+//            }
+//        }
+    }
+    
+    private func signupRequest(endpoint: String, signupModel: SignupModel) {
+        networkingServiceManager.request(endpoint: endpoint,
+                                         signupObject: signupModel) { [weak self] (result) in
+            switch result {
+            case .success(let key):
+                self?.dismiss(animated: true, completion: nil)
+
+            case .failure(let error):
+                guard let alert = self?.alertManager.alert(message: "😅") else { return }
+                #if DEBUG
+                print(error.localizedDescription)
+                #endif
+                self?.present(alert, animated: true)
+            }
+        }
     }
 }
 

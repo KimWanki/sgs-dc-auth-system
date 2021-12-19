@@ -8,9 +8,10 @@
 import UIKit
 
 class SignupNameViewController: UIViewController {
-    
     let networkingServiceManager = NetworkServiceManager()
     let alertManager = AlertManager()
+    
+    var currentInfo = [String: Any]()
     
     lazy var passwordLabel: UILabel = {
         let label = UILabel()
@@ -61,6 +62,7 @@ class SignupNameViewController: UIViewController {
         applyViewSettings()
         textField.becomeFirstResponder()
         confirmButton.addTarget(self, action: #selector(didTapConfirmButton), for: .touchUpInside)
+        print(currentInfo)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,9 +90,22 @@ extension SignupNameViewController {
     private func didTapConfirmButton(_ sender: Any) {
         guard let name = self.textField.text
         else { return }
-        print(name)
-        self.performSegue(withIdentifier: "signupNickNameSegue", sender: name)
-        
+        if name.count == 0 {
+            let alert = alertManager.alert(message: "이름을 입력해주세요")
+            self.present(alert, animated: true)
+        } else {
+            self.performSegue(withIdentifier: "signupNickNameSegue", sender: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "signupNickNameSegue" {
+            if let destinationViewController = segue.destination as? SignupNickNameViewController,
+               let name = self.textField.text {
+                self.currentInfo["name"] = name
+                destinationViewController.currentInfo = self.currentInfo
+            }
+        }
     }
 }
 

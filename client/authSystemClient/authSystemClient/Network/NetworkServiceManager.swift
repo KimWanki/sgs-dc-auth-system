@@ -53,6 +53,36 @@ class NetworkServiceManager {
         task.resume()
     }
     
+    func handleSignupResponse(for request: URLRequest,
+                        completionHandler: @escaping ((Result<Codable, Error>) -> Void)) {
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            DispatchQueue.main.async {
+                guard let unwrappedResponse = response as? HTTPURLResponse else { completionHandler(.failure(NetworkingError.InvalidResponse))
+                    return
+                }
+                print(unwrappedResponse.statusCode)
+                
+                switch unwrappedResponse.statusCode {
+                // success
+                case 200..<300:
+                    // pass into our api
+                    print("success")
+                default:
+                    print("failure")
+                }
+                
+                if let unwrappedError = error {
+                    completionHandler(.failure(unwrappedError))
+                    return
+                }
+            }
+        }
+        task.resume()
+    }
+    
     func handleExistResponse(for request: URLRequest,
                         completionHandler: @escaping ((Result<Codable, Error>) -> Void)) {
         
@@ -124,12 +154,13 @@ class NetworkServiceManager {
         guard let url = URL(string: baseUrl + endpoint) else { completionHandler(.failure(NetworkingError.InvalidURL))
             return
         }
+        print(url)
         
         var request = URLRequest(url: url)
 
         do {
-            let loginData = try JSONEncoder().encode(signupObject)
-            request.httpBody = loginData
+            let signupData = try JSONEncoder().encode(signupObject)
+            request.httpBody = signupData
         } catch {
             completionHandler(.failure(NetworkingError.EncodingFail))
         }
@@ -137,7 +168,7 @@ class NetworkServiceManager {
         request.httpMethod = String(describing: HttpMethod.post)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        handleResponse(for: request, completionHandler: completionHandler)
+        handleSignupResponse(for: request, completionHandler: completionHandler)
     }
     
     // parameters을 활용한 네트워크 요청
@@ -156,6 +187,7 @@ class NetworkServiceManager {
             queryItems.append(queryItem)
         }
         
+        print(queryItems)
         components.queryItems = queryItems
     
         let queryItemData = components.query?.data(using: .utf8)
@@ -164,6 +196,6 @@ class NetworkServiceManager {
         request.httpMethod = String(describing: HttpMethod.post)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        handleResponse(for: request, completionHandler: completionHandler)
+        handleSignupResponse(for: request, completionHandler: completionHandler)
     }
 }

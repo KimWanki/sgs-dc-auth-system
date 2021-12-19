@@ -161,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zuB-DM-yuM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2114.4000000000001" y="458.86699507389164"/>
+            <point key="canvasLocation" x="1966" y="459"/>
         </scene>
         <!--Signup Password View Controller-->
         <scene sceneID="Jqd-0c-vaw">
@@ -187,7 +187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bQ0-Ax-biv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3060" y="466"/>
+            <point key="canvasLocation" x="2678" y="459"/>
         </scene>
         <!--Signup Name View Controller-->
         <scene sceneID="8f2-45-OTi">
@@ -213,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dzv-ot-nCz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3929" y="466"/>
+            <point key="canvasLocation" x="3353" y="459"/>
         </scene>
         <!--Signup Nick Name View Controller-->
         <scene sceneID="W5e-bb-AJF">
@@ -236,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eGd-cr-ZnM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4950" y="466"/>
+            <point key="canvasLocation" x="4028" y="459"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MLb-pr-VGi">

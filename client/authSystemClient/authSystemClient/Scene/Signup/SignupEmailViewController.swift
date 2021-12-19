@@ -100,12 +100,21 @@ extension SignupEmailViewController {
                                   ) { [weak self] (result) in
             switch result {
             case .success(_):
-                    self?.performSegue(withIdentifier: "signupPasswordSegue", sender: email)
+                    self?.performSegue(withIdentifier: "signupPasswordSegue", sender: nil)
             case .failure(_):
                 guard let alert = self?.alertManager.alert(message: "중복된 이메일이 있어 가입이 불가능합니다.")
                 else { return }
                 
                 self?.present(alert, animated: true)
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "signupPasswordSegue" {
+            if let destinationViewController = segue.destination as? SignupPasswordViewController,
+               let email = self.textField.text {
+                destinationViewController.currentInfo = ["email": email]
             }
         }
     }

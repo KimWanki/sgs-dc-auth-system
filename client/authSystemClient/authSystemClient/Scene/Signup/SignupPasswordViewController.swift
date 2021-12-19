@@ -11,6 +11,8 @@ class SignupPasswordViewController: UIViewController {
     let networkingServiceManager = NetworkServiceManager()
     let alertManager = AlertManager()
     
+    var currentInfo = [String: Any]()
+    
     lazy var passwordLabel: UILabel = {
         let label = UILabel()
         label.text = "사용할 비밀번호를 입력해주세요."
@@ -60,6 +62,7 @@ class SignupPasswordViewController: UIViewController {
         applyViewSettings()
         textField.becomeFirstResponder()
         confirmButton.addTarget(self, action: #selector(didTapConfirmButton), for: .touchUpInside)
+        print(currentInfo)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,10 +88,24 @@ extension SignupPasswordViewController {
     
     @objc
     private func didTapConfirmButton(_ sender: Any) {
-        guard let password = self.textField.text
-        else { return }
-        print(password)
-        self.performSegue(withIdentifier: "signupNameSegue", sender: password)
+        guard let password = self.textField.text,
+              password.count > 7
+        else {
+            let alert = self.alertManager.alert(message: "8자리 이상으로 설정해주세요")
+            self.present(alert, animated: true)
+            return
+        }
+        self.performSegue(withIdentifier: "signupNameSegue", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "signupNameSegue" {
+            if let destinationViewController = segue.destination as? SignupNameViewController,
+               let password = self.textField.text {
+                self.currentInfo["password"] = password
+                destinationViewController.currentInfo = self.currentInfo
+            }
+        }
     }
 }
 
