@@ -1,28 +1,32 @@
 //
-//  SignupViewController.swift
+//  SignupPwViewController.swift
 //  authSystemClient
 //
-//  Created by wankikim-MN on 2021/12/19.
+//  Created by wankikim-MN on 2021/12/20.
 //
+
+import Foundation
 
 import UIKit
 
-class SignupViewController: UIViewController {
+class SignupPWViewController: UIViewController {
     
     lazy var emailLabel: UILabel = {
         let label = UILabel()
-        label.text = "이메일을 입력해주세요."
+        label.text = "사용할 비밀번호를 입력해주세요."
         return label
     }()
     
     lazy var textField: UITextField = {
         let view = UITextField.init(frame: .zero)
         view.inputAccessoryView = accessoryView
-        view.placeholder = "ID@example.com"
+        view.placeholder = "비밀번호"
         view.textAlignment = .left
+        view.textContentType = .newPassword
 
         view.layer.borderWidth = 1
         view.layer.cornerRadius = 4
+        
         view.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: view.frame.height))
         view.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: view.frame.height))
         view.leftViewMode = .always
@@ -49,12 +53,7 @@ class SignupViewController: UIViewController {
 
         return button
     }()
-    
-    @objc
-    private func didTapConfirmButton(_ sender: Any) {
-        
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

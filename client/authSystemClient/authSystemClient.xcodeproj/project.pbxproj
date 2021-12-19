@@ -18,6 +18,15 @@
 		7BAC8C89276F611C003A752C /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C88276F611C003A752C /* ViewConfiguration.swift */; };
 		7BAC8C90276F62DE003A752C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C8F276F62DE003A752C /* CustomTextField.swift */; };
 		7BAC8C94276F6340003A752C /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C93276F6340003A752C /* UIView+.swift */; };
+		7BAC8C96276F74FC003A752C /* NetworkServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C95276F74FC003A752C /* NetworkServiceManager.swift */; };
+		7BAC8C98276F753D003A752C /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C97276F753D003A752C /* HttpMethod.swift */; };
+		7BAC8C9B276F761B003A752C /* SigninModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C9A276F761B003A752C /* SigninModel.swift */; };
+		7BAC8C9D276F77E4003A752C /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C9C276F77E4003A752C /* NetworkingError.swift */; };
+		7BAC8C9F276F78AC003A752C /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C9E276F78AC003A752C /* ErrorResponse.swift */; };
+		7BAC8CA1276F78D7003A752C /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CA0276F78D7003A752C /* JWT.swift */; };
+		7BAC8CA3276F79B4003A752C /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CA2276F79B4003A752C /* SignupModel.swift */; };
+		7BAC8CA5276F7A19003A752C /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CA4276F7A19003A752C /* AlertManager.swift */; };
+		7BAC8CA7276F85CD003A752C /* SignupPwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CA6276F85CD003A752C /* SignupPwViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +43,15 @@
 		7BAC8C88276F611C003A752C /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
 		7BAC8C8F276F62DE003A752C /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		7BAC8C93276F6340003A752C /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		7BAC8C95276F74FC003A752C /* NetworkServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceManager.swift; sourceTree = "<group>"; };
+		7BAC8C97276F753D003A752C /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		7BAC8C9A276F761B003A752C /* SigninModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninModel.swift; sourceTree = "<group>"; };
+		7BAC8C9C276F77E4003A752C /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		7BAC8C9E276F78AC003A752C /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		7BAC8CA0276F78D7003A752C /* JWT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
+		7BAC8CA2276F79B4003A752C /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
+		7BAC8CA4276F7A19003A752C /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		7BAC8CA6276F85CD003A752C /* SignupPwViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPwViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +84,6 @@
 		7BAC8C67276F52D2003A752C /* authSystemClient */ = {
 			isa = PBXGroup;
 			children = (
-				7BAC8C8D276F61FA003A752C /* Model */,
 				7BAC8C7E276F6081003A752C /* Entry */,
 				7BAC8C7F276F6093003A752C /* Scene */,
 				7BAC8C8A276F6147003A752C /* Util */,
@@ -91,19 +108,19 @@
 				7BAC8C6E276F52D2003A752C /* Main.storyboard */,
 				7BAC8C8E276F62C3003A752C /* UIElement */,
 				7BAC8C87276F610D003A752C /* Base */,
-				7BAC8C80276F609A003A752C /* Login */,
+				7BAC8C80276F609A003A752C /* Signin */,
 				7BAC8C84276F60D6003A752C /* Signup */,
 				7BAC8C81276F60A6003A752C /* Home */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
 		};
-		7BAC8C80276F609A003A752C /* Login */ = {
+		7BAC8C80276F609A003A752C /* Signin */ = {
 			isa = PBXGroup;
 			children = (
 				7BAC8C6C276F52D2003A752C /* LoginViewContoller.swift */,
 			);
-			path = Login;
+			path = Signin;
 			sourceTree = "<group>";
 		};
 		7BAC8C81276F60A6003A752C /* Home */ = {
@@ -118,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				7BAC8C85276F60F1003A752C /* SignupViewController.swift */,
+				7BAC8CA6276F85CD003A752C /* SignupPwViewController.swift */,
 			);
 			path = Signup;
 			sourceTree = "<group>";
@@ -134,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				7BAC8C92276F631C003A752C /* Extension */,
+				7BAC8CA4276F7A19003A752C /* AlertManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -141,6 +160,10 @@
 		7BAC8C8B276F614E003A752C /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				7BAC8C8D276F61FA003A752C /* Entity */,
+				7BAC8C95276F74FC003A752C /* NetworkServiceManager.swift */,
+				7BAC8C97276F753D003A752C /* HttpMethod.swift */,
+				7BAC8C9C276F77E4003A752C /* NetworkingError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -155,11 +178,15 @@
 			path = SupportFile;
 			sourceTree = "<group>";
 		};
-		7BAC8C8D276F61FA003A752C /* Model */ = {
+		7BAC8C8D276F61FA003A752C /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				7BAC8C9A276F761B003A752C /* SigninModel.swift */,
+				7BAC8CA2276F79B4003A752C /* SignupModel.swift */,
+				7BAC8CA0276F78D7003A752C /* JWT.swift */,
+				7BAC8C9E276F78AC003A752C /* ErrorResponse.swift */,
 			);
-			path = Model;
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		7BAC8C8E276F62C3003A752C /* UIElement */ = {
@@ -249,14 +276,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BAC8CA5276F7A19003A752C /* AlertManager.swift in Sources */,
 				7BAC8C90276F62DE003A752C /* CustomTextField.swift in Sources */,
 				7BAC8C6D276F52D2003A752C /* LoginViewContoller.swift in Sources */,
+				7BAC8C98276F753D003A752C /* HttpMethod.swift in Sources */,
+				7BAC8C9B276F761B003A752C /* SigninModel.swift in Sources */,
 				7BAC8C69276F52D2003A752C /* AppDelegate.swift in Sources */,
 				7BAC8C86276F60F1003A752C /* SignupViewController.swift in Sources */,
 				7BAC8C94276F6340003A752C /* UIView+.swift in Sources */,
 				7BAC8C6B276F52D2003A752C /* SceneDelegate.swift in Sources */,
 				7BAC8C83276F60B2003A752C /* HomeViewController.swift in Sources */,
+				7BAC8CA7276F85CD003A752C /* SignupPwViewController.swift in Sources */,
 				7BAC8C89276F611C003A752C /* ViewConfiguration.swift in Sources */,
+				7BAC8C9D276F77E4003A752C /* NetworkingError.swift in Sources */,
+				7BAC8CA3276F79B4003A752C /* SignupModel.swift in Sources */,
+				7BAC8C96276F74FC003A752C /* NetworkServiceManager.swift in Sources */,
+				7BAC8C9F276F78AC003A752C /* ErrorResponse.swift in Sources */,
+				7BAC8CA1276F78D7003A752C /* JWT.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

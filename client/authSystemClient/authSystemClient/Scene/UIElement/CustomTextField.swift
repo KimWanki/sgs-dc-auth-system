@@ -40,11 +40,10 @@ extension CustomTextField: ViewConfiguration {
             underlintView.leadingAnchor.constraint(equalTo: leadingAnchor),
             underlintView.trailingAnchor.constraint(equalTo: trailingAnchor),
             underlintView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 5),
-            underlintView.heightAnchor.constraint(equalToConstant: 1)
         ])
     }
     
     func configureViews() {
-        attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes: [.foregroundColor : UIColor(white: 1, alpha: 0.3)])
+        attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes: [.foregroundColor : UIColor(white: 0, alpha: 0.3)])
     }
 }
