@@ -10,16 +10,16 @@ router.get('/', checkAuth, (req, res, next) => {
 });
 
 router.get('/:parameterId', checkAuth, (req, res, next) => {
-        let orderId = req.params.parameterId;
+        let parameterId = req.params.parameterId;
         res.status(200).json({
-        message: 'TestAPI details',
+        message: 'TestAPI GET',
         parameterId: parameterId
     });
 });
 
 router.delete('/:parameterId', checkAuth, (req, res, next) => {
     res.status(200).json({
-        message: 'Order details',
+        message: 'TestAPI DELETE',
         parameterId: req.params.parameterId
     });
 });
