@@ -1,31 +1,8 @@
-const express = require('express')
-const app = express()
-const port = 8080
+const http = require('http');
+const app = require('./app');
 
-app.listen(port, () => {
-    console.log(`App listening at http://localhost:${port}`)
-});
+const port = process.env.PORT || 3000;
 
-const mysql = require('mysql');
-const dbconfig = require('./api/config/database.js');
+const server = http.createServer(app);
 
-const connection = mysql.createConnection(dbconfig);
-
-connection.connect();
-
-connection.query('select * from users', (error, rows, fields) => {
-    if (error) throw error;
-    console.log('User info is: ', rows);
-})
-
-connection.end()
-
-
-app.get('/register', (req, res) => {
-    res.json();
-});
-
-app.post('/login', (req, res) => {
-    res.json();
-    console.log(req);
-});
+server.listen(port);
