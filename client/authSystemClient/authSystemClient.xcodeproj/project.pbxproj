@@ -14,7 +14,7 @@
 		7BAC8C72276F52D4003A752C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC8C71276F52D4003A752C /* Assets.xcassets */; };
 		7BAC8C75276F52D4003A752C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC8C73276F52D4003A752C /* LaunchScreen.storyboard */; };
 		7BAC8C83276F60B2003A752C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C82276F60B2003A752C /* HomeViewController.swift */; };
-		7BAC8C86276F60F1003A752C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C85276F60F1003A752C /* SignupViewController.swift */; };
+		7BAC8C86276F60F1003A752C /* SignupEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C85276F60F1003A752C /* SignupEmailViewController.swift */; };
 		7BAC8C89276F611C003A752C /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C88276F611C003A752C /* ViewConfiguration.swift */; };
 		7BAC8C90276F62DE003A752C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C8F276F62DE003A752C /* CustomTextField.swift */; };
 		7BAC8C94276F6340003A752C /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C93276F6340003A752C /* UIView+.swift */; };
@@ -26,7 +26,10 @@
 		7BAC8CA1276F78D7003A752C /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CA0276F78D7003A752C /* JWT.swift */; };
 		7BAC8CA3276F79B4003A752C /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CA2276F79B4003A752C /* SignupModel.swift */; };
 		7BAC8CA5276F7A19003A752C /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CA4276F7A19003A752C /* AlertManager.swift */; };
-		7BAC8CA7276F85CD003A752C /* SignupPwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CA6276F85CD003A752C /* SignupPwViewController.swift */; };
+		7BAC8CA7276F85CD003A752C /* SignupPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CA6276F85CD003A752C /* SignupPasswordViewController.swift */; };
+		7BAC8CA9276F8EC1003A752C /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CA8276F8EC1003A752C /* String+.swift */; };
+		7BAC8CAB276F9EA4003A752C /* SignupNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CAA276F9EA4003A752C /* SignupNameViewController.swift */; };
+		7BAC8CAD276F9EB4003A752C /* SignupNickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CAC276F9EB4003A752C /* SignupNickNameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +42,7 @@
 		7BAC8C74276F52D4003A752C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7BAC8C76276F52D4003A752C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = authSystemClient/SupportFile/Info.plist; sourceTree = SOURCE_ROOT; };
 		7BAC8C82276F60B2003A752C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		7BAC8C85276F60F1003A752C /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		7BAC8C85276F60F1003A752C /* SignupEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupEmailViewController.swift; sourceTree = "<group>"; };
 		7BAC8C88276F611C003A752C /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
 		7BAC8C8F276F62DE003A752C /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		7BAC8C93276F6340003A752C /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -51,7 +54,10 @@
 		7BAC8CA0276F78D7003A752C /* JWT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
 		7BAC8CA2276F79B4003A752C /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
 		7BAC8CA4276F7A19003A752C /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
-		7BAC8CA6276F85CD003A752C /* SignupPwViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPwViewController.swift; sourceTree = "<group>"; };
+		7BAC8CA6276F85CD003A752C /* SignupPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPasswordViewController.swift; sourceTree = "<group>"; };
+		7BAC8CA8276F8EC1003A752C /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		7BAC8CAA276F9EA4003A752C /* SignupNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupNameViewController.swift; sourceTree = "<group>"; };
+		7BAC8CAC276F9EB4003A752C /* SignupNickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupNickNameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +140,10 @@
 		7BAC8C84276F60D6003A752C /* Signup */ = {
 			isa = PBXGroup;
 			children = (
-				7BAC8C85276F60F1003A752C /* SignupViewController.swift */,
-				7BAC8CA6276F85CD003A752C /* SignupPwViewController.swift */,
+				7BAC8C85276F60F1003A752C /* SignupEmailViewController.swift */,
+				7BAC8CA6276F85CD003A752C /* SignupPasswordViewController.swift */,
+				7BAC8CAA276F9EA4003A752C /* SignupNameViewController.swift */,
+				7BAC8CAC276F9EB4003A752C /* SignupNickNameViewController.swift */,
 			);
 			path = Signup;
 			sourceTree = "<group>";
@@ -201,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				7BAC8C93276F6340003A752C /* UIView+.swift */,
+				7BAC8CA8276F8EC1003A752C /* String+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -282,17 +291,20 @@
 				7BAC8C98276F753D003A752C /* HttpMethod.swift in Sources */,
 				7BAC8C9B276F761B003A752C /* SigninModel.swift in Sources */,
 				7BAC8C69276F52D2003A752C /* AppDelegate.swift in Sources */,
-				7BAC8C86276F60F1003A752C /* SignupViewController.swift in Sources */,
+				7BAC8C86276F60F1003A752C /* SignupEmailViewController.swift in Sources */,
 				7BAC8C94276F6340003A752C /* UIView+.swift in Sources */,
 				7BAC8C6B276F52D2003A752C /* SceneDelegate.swift in Sources */,
 				7BAC8C83276F60B2003A752C /* HomeViewController.swift in Sources */,
-				7BAC8CA7276F85CD003A752C /* SignupPwViewController.swift in Sources */,
+				7BAC8CAB276F9EA4003A752C /* SignupNameViewController.swift in Sources */,
+				7BAC8CA9276F8EC1003A752C /* String+.swift in Sources */,
+				7BAC8CA7276F85CD003A752C /* SignupPasswordViewController.swift in Sources */,
 				7BAC8C89276F611C003A752C /* ViewConfiguration.swift in Sources */,
 				7BAC8C9D276F77E4003A752C /* NetworkingError.swift in Sources */,
 				7BAC8CA3276F79B4003A752C /* SignupModel.swift in Sources */,
 				7BAC8C96276F74FC003A752C /* NetworkServiceManager.swift in Sources */,
 				7BAC8C9F276F78AC003A752C /* ErrorResponse.swift in Sources */,
 				7BAC8CA1276F78D7003A752C /* JWT.swift in Sources */,
+				7BAC8CAD276F9EB4003A752C /* SignupNickNameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -57,7 +57,7 @@
                                     <constraint firstAttribute="height" constant="45" id="AY3-3p-vA3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2B-YE-o2A">
                                 <rect key="frame" x="30" y="429" width="315" height="45"/>
@@ -137,43 +137,106 @@
             </objects>
             <point key="canvasLocation" x="1172" y="-211"/>
         </scene>
-        <!--회원가입-->
+        <!--Signup Email View Controller-->
         <scene sceneID="3k9-EZ-wEE">
             <objects>
-                <viewController id="LGI-lQ-K1h" customClass="SignupViewController" customModule="authSystemClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LGI-lQ-K1h" customClass="SignupEmailViewController" customModule="authSystemClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4NM-61-wyd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="NtD-ow-wUk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="회원가입" id="oA0-7e-ta7">
+                    <navigationItem key="navigationItem" id="oA0-7e-ta7">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="SLZ-oy-aKI">
                             <color key="tintColor" systemColor="labelColor"/>
                             <connections>
-                                <action selector="didTapCancelButton:" destination="LGI-lQ-K1h" id="m7r-hm-s9f"/>
+                                <action selector="didTapCancelButton:" destination="LGI-lQ-K1h" id="npf-EE-v0R"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="0Xf-aF-IT1" kind="show" identifier="signupPasswordSegue" id="lKu-r5-JBi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zuB-DM-yuM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2114.4000000000001" y="458.86699507389164"/>
         </scene>
-        <!--View Controller-->
+        <!--Signup Password View Controller-->
         <scene sceneID="Jqd-0c-vaw">
             <objects>
-                <viewController id="0Xf-aF-IT1" sceneMemberID="viewController">
+                <viewController id="0Xf-aF-IT1" customClass="SignupPasswordViewController" customModule="authSystemClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uFh-Tn-Pc8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="oMM-b9-6Y1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="gVX-et-bY1">
+                        <barButtonItem key="leftBarButtonItem" title="이전 단계로" id="Z8U-Mf-cag">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="didTapCancelButton:" destination="0Xf-aF-IT1" id="ovM-9z-HpA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="eIj-r9-3wY" kind="show" identifier="signupNameSegue" id="z1H-vL-d23"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bQ0-Ax-biv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3060" y="466"/>
+        </scene>
+        <!--Signup Name View Controller-->
+        <scene sceneID="8f2-45-OTi">
+            <objects>
+                <viewController id="eIj-r9-3wY" customClass="SignupNameViewController" customModule="authSystemClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xIW-OF-BVf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="rF4-cS-WsJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="PN7-lg-arA">
+                        <barButtonItem key="leftBarButtonItem" title="이전 단계로" id="70g-kx-JBZ">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="didTapCancelButton:" destination="eIj-r9-3wY" id="gix-iW-d7M"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="yXf-WK-UFJ" kind="show" identifier="signupNickNameSegue" id="MSL-x0-99O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dzv-ot-nCz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3929" y="466"/>
+        </scene>
+        <!--Signup Nick Name View Controller-->
+        <scene sceneID="W5e-bb-AJF">
+            <objects>
+                <viewController id="yXf-WK-UFJ" customClass="SignupNickNameViewController" customModule="authSystemClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2YN-CB-2yu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="L7s-Wh-1tj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="b3w-jg-Wtl">
+                        <barButtonItem key="leftBarButtonItem" title="이전 단계로" id="x2k-cL-wFV">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="didTapCancelButton:" destination="yXf-WK-UFJ" id="FLy-wv-b3X"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eGd-cr-ZnM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4950" y="466"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MLb-pr-VGi">

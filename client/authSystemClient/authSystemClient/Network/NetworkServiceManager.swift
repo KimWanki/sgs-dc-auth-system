@@ -51,9 +51,96 @@ class NetworkServiceManager {
             }
         }
         task.resume()
-        
     }
     
+    func handleExistResponse(for request: URLRequest,
+                        completionHandler: @escaping ((Result<Codable, Error>) -> Void)) {
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            DispatchQueue.main.async {
+                guard let unwrappedResponse = response as? HTTPURLResponse else { completionHandler(.failure(NetworkingError.InvalidResponse))
+                    return
+                }
+                print(unwrappedResponse.statusCode)
+                
+                switch unwrappedResponse.statusCode {
+                // success
+                case 200..<300:
+                    // pass into our api
+                    completionHandler(.success(true))
+                    return
+                default:
+                    completionHandler(.failure(NetworkingError.InvalidResponse))
+                }
+            }
+        }
+        task.resume()
+    }
+        
+    // 아이디 중복 체크 요청
+    func request(endpoint: String,
+                 checkObject: String,
+                 completionHandler: @escaping (Result<Codable, Error>) -> Void) {
+        guard let url = URL(string: baseUrl + endpoint + checkObject) else { completionHandler(.failure(NetworkingError.InvalidURL))
+            return
+        }
+        var request = URLRequest(url: url)
+        print(url)
+        request.httpMethod = String(describing: HttpMethod.get)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        handleExistResponse(for: request, completionHandler: completionHandler)
+    }
+        
+    // 로그인 요청
+    func request(endpoint: String,
+                 signinObject: SigninModel,
+                 completionHandler: @escaping (Result<Codable, Error>) -> Void) {
+        guard let url = URL(string: baseUrl + endpoint) else { completionHandler(.failure(NetworkingError.InvalidURL))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+
+        do {
+            let loginData = try JSONEncoder().encode(signinObject)
+            request.httpBody = loginData
+        } catch {
+            completionHandler(.failure(NetworkingError.EncodingFail))
+        }
+
+        request.httpMethod = String(describing: HttpMethod.post)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        handleResponse(for: request, completionHandler: completionHandler)
+    }
+    
+    // 회원 가입 요청
+    func request(endpoint: String,
+                 signupObject: SignupModel,
+                 completionHandler: @escaping (Result<Codable, Error>) -> Void) {
+        guard let url = URL(string: baseUrl + endpoint) else { completionHandler(.failure(NetworkingError.InvalidURL))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+
+        do {
+            let loginData = try JSONEncoder().encode(signupObject)
+            request.httpBody = loginData
+        } catch {
+            completionHandler(.failure(NetworkingError.EncodingFail))
+        }
+        
+        request.httpMethod = String(describing: HttpMethod.post)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        handleResponse(for: request, completionHandler: completionHandler)
+    }
+    
+    // parameters을 활용한 네트워크 요청
     func request(endpoint: String,
                  parameters: [String: Any],
                  completionHandler: @escaping (Result<Codable, Error>) -> Void) {
@@ -65,71 +152,18 @@ class NetworkServiceManager {
         var components = URLComponents()
         var queryItems = [URLQueryItem]()
         for (key, value) in parameters {
-            // any value to string
             let queryItem = URLQueryItem(name: key, value: String(describing: value))
             queryItems.append(queryItem)
         }
         
         components.queryItems = queryItems
-        // username=IDvalue & password=passwordValue
-        // standard encoding for request
+    
         let queryItemData = components.query?.data(using: .utf8)
         
-        print(components.url)
         request.httpBody = queryItemData
         request.httpMethod = String(describing: HttpMethod.post)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         handleResponse(for: request, completionHandler: completionHandler)
     }
-    
-    
-    func request(endpoint: String,
-                 loginObject: SigninModel,
-                 completionHandler: @escaping (Result<Codable, Error>) -> Void) {
-        guard let url = URL(string: baseUrl + endpoint) else { completionHandler(.failure(NetworkingError.InvalidURL))
-            return
-        }
-        
-        var request = URLRequest(url: url)
-
-        do {
-            let loginData = try JSONEncoder().encode(loginObject)
-            request.httpBody = loginData
-        } catch {
-            completionHandler(.failure(NetworkingError.EncodingFail))
-        }
-        
-        // username=IDvalue & password=passwordValue
-        // standard encoding for request
-        request.httpMethod = String(describing: HttpMethod.post)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        handleResponse(for: request, completionHandler: completionHandler)
-    }
-    
-    func request(endpoint: String,
-                 joinObject: SignupModel,
-                 completionHandler: @escaping (Result<Codable, Error>) -> Void) {
-        guard let url = URL(string: baseUrl + endpoint) else { completionHandler(.failure(NetworkingError.InvalidURL))
-            return
-        }
-        
-        var request = URLRequest(url: url)
-
-        do {
-            let loginData = try JSONEncoder().encode(joinObject)
-            request.httpBody = loginData
-        } catch {
-            completionHandler(.failure(NetworkingError.EncodingFail))
-        }
-        
-        // username=IDvalue & password=passwordValue
-        // standard encoding for request
-        request.httpMethod = String(describing: HttpMethod.post)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        handleResponse(for: request, completionHandler: completionHandler)
-    }
-    
 }
