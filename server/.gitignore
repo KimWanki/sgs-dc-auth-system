@@ -70,6 +70,8 @@ web_modules/
 .node_repl_history
 
 # Output of 'npm pack'
+
+nodemon.json
 *.tgz
 
 # Yarn Integrity file
