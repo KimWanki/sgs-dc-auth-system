@@ -16,6 +16,8 @@
 		7BAC8C83276F60B2003A752C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C82276F60B2003A752C /* HomeViewController.swift */; };
 		7BAC8C86276F60F1003A752C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C85276F60F1003A752C /* SignupViewController.swift */; };
 		7BAC8C89276F611C003A752C /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C88276F611C003A752C /* ViewConfiguration.swift */; };
+		7BAC8C90276F62DE003A752C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C8F276F62DE003A752C /* CustomTextField.swift */; };
+		7BAC8C94276F6340003A752C /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C93276F6340003A752C /* UIView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,10 +28,12 @@
 		7BAC8C6F276F52D2003A752C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7BAC8C71276F52D4003A752C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BAC8C74276F52D4003A752C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7BAC8C76276F52D4003A752C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/wankikim-MN/Documents/DevCamp/Auth_System/sgs-dc-auth-system/client/authSystemClient/authSystemClient/SupportFile/Info.plist"; sourceTree = "<absolute>"; };
+		7BAC8C76276F52D4003A752C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = authSystemClient/SupportFile/Info.plist; sourceTree = SOURCE_ROOT; };
 		7BAC8C82276F60B2003A752C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7BAC8C85276F60F1003A752C /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		7BAC8C88276F611C003A752C /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
+		7BAC8C8F276F62DE003A752C /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		7BAC8C93276F6340003A752C /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,10 +89,11 @@
 			isa = PBXGroup;
 			children = (
 				7BAC8C6E276F52D2003A752C /* Main.storyboard */,
+				7BAC8C8E276F62C3003A752C /* UIElement */,
 				7BAC8C87276F610D003A752C /* Base */,
+				7BAC8C80276F609A003A752C /* Login */,
 				7BAC8C84276F60D6003A752C /* Signup */,
 				7BAC8C81276F60A6003A752C /* Home */,
-				7BAC8C80276F609A003A752C /* Login */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 		7BAC8C8A276F6147003A752C /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				7BAC8C92276F631C003A752C /* Extension */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -154,6 +160,22 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7BAC8C8E276F62C3003A752C /* UIElement */ = {
+			isa = PBXGroup;
+			children = (
+				7BAC8C8F276F62DE003A752C /* CustomTextField.swift */,
+			);
+			path = UIElement;
+			sourceTree = "<group>";
+		};
+		7BAC8C92276F631C003A752C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7BAC8C93276F6340003A752C /* UIView+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,9 +249,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BAC8C90276F62DE003A752C /* CustomTextField.swift in Sources */,
 				7BAC8C6D276F52D2003A752C /* LoginViewContoller.swift in Sources */,
 				7BAC8C69276F52D2003A752C /* AppDelegate.swift in Sources */,
 				7BAC8C86276F60F1003A752C /* SignupViewController.swift in Sources */,
+				7BAC8C94276F6340003A752C /* UIView+.swift in Sources */,
 				7BAC8C6B276F52D2003A752C /* SceneDelegate.swift in Sources */,
 				7BAC8C83276F60B2003A752C /* HomeViewController.swift in Sources */,
 				7BAC8C89276F611C003A752C /* ViewConfiguration.swift in Sources */,
