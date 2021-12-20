@@ -16,8 +16,18 @@ connection.connect();
 router.get('/', (req, res, next) => {
     connection.query('select * from users', (error, rows, fields) => {
         if (error) throw error;
-        console.log('User info is:', rows);  
+        
         res.status(200).json(rows);
+    });    
+});
+
+// 특정 유저 정보 받아오기
+router.get('/:email', (req, res, next) => {
+    const email = req.params.email
+    connection.query(`select * from users where email = '${email}'`, (error, row, fields) => {
+        if (error) throw error;
+        
+        res.status(200).json(row);
     });    
 });
 
@@ -31,10 +41,16 @@ router.get('/check/:email',(req, res, next) => {
             next(error);
         }
         var existence = result[0].count == 1 ? true : false;
-
-        res.status(200).json({
-            "existence": existence
-        });
+        console.log(existence)
+        if (existence == false) {
+            res.status(200).json({
+                "existence": existence
+            });
+        } else {
+            res.status(400).json({
+                "existence": existence
+            });
+        }
     });
 });
 
@@ -71,33 +87,38 @@ router.post('/signin', (req, res, next) => {
     connection.query(`select * from users where email = '${email}'`, (error, result, fields) => {
         if (error) throw error;
 
-        if (result.lentgh < 1) {
-            return res.status(401).json({
+        if (result.length < 1) {
+            res.status(401).json({
                 message: "Auth failed"
             });
-        }
-        
-        let dbPassword = result[0].password;
-        let salt = result[0].salt;
-        let hashPassword = crypto.createHash("sha512").update(inputPassword + salt).digest("hex");
+        } else {
+            let dbPassword = result[0].password;
+            let salt = result[0].salt;
+            let hashPassword = crypto.createHash("sha512").update(inputPassword + salt).digest("hex");
 
-        if (dbPassword === hashPassword) {
-            let token = jwt.sign({
-                email: result[0].email
-            },
-            process.env.JWT_KEY,
-            {
-                expiresIn: '12h'
-            })
-            res.status(200).json({
+            if (dbPassword === hashPassword) {
+                let token = jwt.sign({
+                    email: result[0].email
+                },
+                process.env.JWT_KEY,
+                {
+                    expiresIn: '12h'
+                })
+                res.status(200).json({
+                    privateInfo: {
+                        email: result[0].email,
+                        name: result[0].name,
+                        nickname: result[0].nickname
+                    },
                     access_token: token,
                     expiresIn: '12h'
-            });
-        } else {
-            res.status(404).json({
-            state: "비밀번호를 다시 입력해주세요."
-            });
-        };
+                });
+            } else {
+                res.status(404).json({
+                state: "비밀번호를 다시 입력해주세요."
+                });
+            };
+        }
     });
 });
 
