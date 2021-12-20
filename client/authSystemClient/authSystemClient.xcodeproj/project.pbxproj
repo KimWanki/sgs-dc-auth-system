@@ -30,6 +30,9 @@
 		7BAC8CA9276F8EC1003A752C /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CA8276F8EC1003A752C /* String+.swift */; };
 		7BAC8CAB276F9EA4003A752C /* SignupNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CAA276F9EA4003A752C /* SignupNameViewController.swift */; };
 		7BAC8CAD276F9EB4003A752C /* SignupNickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CAC276F9EB4003A752C /* SignupNickNameViewController.swift */; };
+		7BAC8CB227706EFD003A752C /* AdministerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CB127706EFD003A752C /* AdministerViewController.swift */; };
+		7BAC8CB42770789D003A752C /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CB32770789D003A752C /* UserTableViewCell.swift */; };
+		7BAC8CB6277078D2003A752C /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CB5277078D2003A752C /* UIStackView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +61,9 @@
 		7BAC8CA8276F8EC1003A752C /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		7BAC8CAA276F9EA4003A752C /* SignupNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupNameViewController.swift; sourceTree = "<group>"; };
 		7BAC8CAC276F9EB4003A752C /* SignupNickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupNickNameViewController.swift; sourceTree = "<group>"; };
+		7BAC8CB127706EFD003A752C /* AdministerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdministerViewController.swift; sourceTree = "<group>"; };
+		7BAC8CB32770789D003A752C /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		7BAC8CB5277078D2003A752C /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				7BAC8C82276F60B2003A752C /* HomeViewController.swift */,
+				7BAC8CB127706EFD003A752C /* AdministerViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -201,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				7BAC8C8F276F62DE003A752C /* CustomTextField.swift */,
+				7BAC8CB32770789D003A752C /* UserTableViewCell.swift */,
 			);
 			path = UIElement;
 			sourceTree = "<group>";
@@ -210,6 +218,7 @@
 			children = (
 				7BAC8C93276F6340003A752C /* UIView+.swift */,
 				7BAC8CA8276F8EC1003A752C /* String+.swift */,
+				7BAC8CB5277078D2003A752C /* UIStackView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -287,6 +296,7 @@
 			files = (
 				7BAC8CA5276F7A19003A752C /* AlertManager.swift in Sources */,
 				7BAC8C90276F62DE003A752C /* CustomTextField.swift in Sources */,
+				7BAC8CB42770789D003A752C /* UserTableViewCell.swift in Sources */,
 				7BAC8C6D276F52D2003A752C /* SigninViewContoller.swift in Sources */,
 				7BAC8C98276F753D003A752C /* HttpMethod.swift in Sources */,
 				7BAC8C9B276F761B003A752C /* SigninModel.swift in Sources */,
@@ -303,8 +313,10 @@
 				7BAC8CA3276F79B4003A752C /* SignupModel.swift in Sources */,
 				7BAC8C96276F74FC003A752C /* NetworkServiceManager.swift in Sources */,
 				7BAC8C9F276F78AC003A752C /* ErrorResponse.swift in Sources */,
+				7BAC8CB227706EFD003A752C /* AdministerViewController.swift in Sources */,
 				7BAC8CA1276F78D7003A752C /* UserInfo.swift in Sources */,
 				7BAC8CAD276F9EB4003A752C /* SignupNickNameViewController.swift in Sources */,
+				7BAC8CB6277078D2003A752C /* UIStackView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

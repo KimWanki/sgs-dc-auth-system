@@ -16,7 +16,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
         self.nameLabel.text = userInfo?.privateInfo.nickname
-        print(userInfo)
     }
 
     func configure(_ userInfo : UserInfo) {

@@ -15,6 +15,8 @@ class SigninViewController: UIViewController {
     
     override func viewDidLoad() {
         autoSigninRequest()
+        UserDefaults.standard.set("admin@smilegate.com", forKey: "adminEmail")
+        UserDefaults.standard.set("smilegate", forKey: "adminPassword")
     }
     
     @IBAction func didTapSignInButton() {
@@ -51,6 +53,17 @@ extension SigninViewController {
 }
 
 extension SigninViewController {
+    
+    private func checkAdminister(email: String, password: String) -> Bool {
+        if let adminEmail = UserDefaults.standard.string(forKey: "adminEmail"),
+           let adminPassword = UserDefaults.standard.string(forKey: "adminPassword") {
+            if email == adminEmail && adminPassword == password {
+                return true
+            }
+        }
+        return false
+    }
+    
     private func autoSigninRequest() {
         guard let userEmail = UserDefaults.standard.string(forKey: "loginEmail"),
               let userPassword = UserDefaults.standard.string(forKey: "loginPassword")
@@ -77,6 +90,10 @@ extension SigninViewController {
     }
     
     private func signinRequest(email: String, password: String) {
+        if checkAdminister(email: email, password: password) {
+            self.performSegue(withIdentifier: "administerSegue", sender: nil)
+            return
+        }
         let user = SigninModel(email: email, password: password)
         NetworkServiceManager.shared.request(endpoint: "/users/signin",
                                          signinObject: user) { [weak self] (result) in

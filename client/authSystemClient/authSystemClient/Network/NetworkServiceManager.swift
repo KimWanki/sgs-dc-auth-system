@@ -67,11 +67,49 @@ class NetworkServiceManager {
         task.resume()
     }
     
-    func handleSignupResponse(for request: URLRequest,
+    func handleAdminResponse(for request: URLRequest,
                         completionHandler: @escaping ((Result<Codable, Error>) -> Void)) {
         
-//        let session = URLSession.shared
-        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            DispatchQueue.main.async {
+                guard let unwrappedResponse = response as? HTTPURLResponse else { completionHandler(.failure(NetworkingError.InvalidResponse))
+                    return
+                }
+                print(unwrappedResponse.statusCode)
+                
+                switch unwrappedResponse.statusCode {
+                case 200..<300:
+                    #if DEBUG
+                    print("Success")
+                    #endif
+                default:
+                    #if DEBUG
+                    print("Fail")
+                    #endif
+                }
+                if let unwrappedError = error {
+                    completionHandler(.failure(unwrappedError))
+                    return
+                }
+                if let unwrappedData = data {
+                    do {
+                        if let tokenInfo = try? JSONDecoder().decode([PrivateInfo].self, from: unwrappedData) {
+                            completionHandler(.success(tokenInfo))
+                        } else {
+                            let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: unwrappedData)
+                            completionHandler(.failure(errorResponse))
+                        }
+                    } catch {
+                        completionHandler(.failure(error))
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    func handleSignupResponse(for request: URLRequest,
+                        completionHandler: @escaping ((Result<Codable, Error>) -> Void)) {
         let task = session.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let unwrappedResponse = response as? HTTPURLResponse else { completionHandler(.failure(NetworkingError.InvalidResponse))
@@ -161,6 +199,19 @@ class NetworkServiceManager {
         handleResponse(for: request, completionHandler: completionHandler)
     }
     
+    func request(endpoint: String,
+                 completionHandler: @escaping (Result<Codable, Error>) -> Void) {
+        guard let url = URL(string: baseUrl + endpoint) else { completionHandler(.failure(NetworkingError.InvalidURL))
+            return
+        }
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = String(describing: HttpMethod.get)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        handleAdminResponse(for: request, completionHandler: completionHandler)
+    }
+    
     // 회원 가입 요청
     func request(endpoint: String,
                  signupObject: SignupModel,
@@ -168,7 +219,6 @@ class NetworkServiceManager {
         guard let url = URL(string: baseUrl + endpoint) else { completionHandler(.failure(NetworkingError.InvalidURL))
             return
         }
-        print(url)
         
         var request = URLRequest(url: url)
 

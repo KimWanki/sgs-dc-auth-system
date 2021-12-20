@@ -115,11 +115,28 @@
                         <outlet property="emailTextField" destination="jEK-2w-8LF" id="0JG-Ip-vZY"/>
                         <outlet property="passwordTextField" destination="3hY-En-W1b" id="JaD-C4-Hgs"/>
                         <segue destination="utB-bm-pko" kind="show" identifier="signinSegue" id="Ak3-kH-hrW"/>
+                        <segue destination="UiH-4O-K5I" kind="show" identifier="administerSegue" id="hdJ-bc-MJv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-52" y="41.379310344827587"/>
+        </scene>
+        <!--Administer View Controller-->
+        <scene sceneID="JIN-qY-exA">
+            <objects>
+                <viewController id="UiH-4O-K5I" customClass="AdministerViewController" customModule="authSystemClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="irV-ce-OCC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Eua-WG-L3C"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1as-aa-6xZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DJv-ZP-paZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1106" y="-870"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="HGG-de-f5z">
