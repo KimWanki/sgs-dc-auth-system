@@ -13,18 +13,12 @@ SGS-DC-Auth-System
 - [ ] E-mail 인증
 - [ ] 비밀번호 찾기
 - [ ] 캐시
-
  -->
- 
- 
-<!-- **도구 List**
-ER Diagram => https://www.erdcloud.com/
- -->
-<!--  ![](https://i.imgur.com/WFdQp2c.png) -->
 
 
 ### 아키텍쳐
 
+![](https://i.imgur.com/yTETyGX.png)
 
 ### 서버구현 - RestAPI 형식으로 구성
 ---
@@ -33,13 +27,16 @@ ER Diagram => https://www.erdcloud.com/
 
 1. **사용자 DB 설계**
    
+   ![image](https://user-images.githubusercontent.com/57824307/146759032-c0c696c5-3a0a-47f1-af82-9179eb7c14c0.png)
+
    **Users Table**
     |column|내용|속성|
     |---|---|---|
     |email|이메일 저장|VARCHAR(50)|
-    |password|비밀번호 저장|VARCHAR(20)|
-    |name|이름 저장|VARCHAR(12)|
-    |nickname|별칭 저장|VARCHAR(12)|
+    |password|비밀번호 저장|VARCHAR(65)|
+    |name|이름 저장|VARCHAR(20)|
+    |nickname|별칭 저장|VARCHAR(20)|
+    |salt|유저별 salt값 저장|VARCHAR(65)|
 
 
 2. API 서버 구현 
@@ -52,7 +49,7 @@ ER Diagram => https://www.erdcloud.com/
 
 암호화 방식 : sha512 + salt
 
-Auth 인증에 따른 access token의 경우, 모바일 접속 환경을 고려하여 expiredTime을 보다 길게 설정함.
+Auth 인증에 따른 token 발급의 경우, 모바일 접속 환경을 고려하여 expiredTime을 길게 설정함.
 
 ### 클라이언트 구현
 ---
