@@ -121,21 +121,65 @@
             </objects>
             <point key="canvasLocation" x="-52" y="41.379310344827587"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="HGG-de-f5z">
             <objects>
-                <viewController id="utB-bm-pko" sceneMemberID="viewController">
+                <viewController id="utB-bm-pko" customClass="HomeViewController" customModule="authSystemClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7ue-9V-yS2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFg-e0-2O8">
+                                <rect key="frame" x="29.999999999999993" y="138" width="73.333333333333314" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="환영합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qZ-0z-iyI">
+                                <rect key="frame" x="30" y="195" width="315" height="28.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="님" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYQ-rb-Uwc">
+                                <rect key="frame" x="108.33333333333331" y="141" width="42" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="gcH-SM-8SU"/>
+                                    <constraint firstAttribute="height" constant="37" id="iDa-JJ-BeC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="gx4-bF-u5f"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PFg-e0-2O8" firstAttribute="top" secondItem="gx4-bF-u5f" secondAttribute="top" constant="50" id="6F6-oz-WGs"/>
+                            <constraint firstItem="PFg-e0-2O8" firstAttribute="leading" secondItem="gx4-bF-u5f" secondAttribute="leading" constant="30" id="9Mu-0s-JLL"/>
+                            <constraint firstItem="cYQ-rb-Uwc" firstAttribute="bottom" secondItem="PFg-e0-2O8" secondAttribute="bottom" constant="3" id="bT5-Rl-U8b"/>
+                            <constraint firstItem="gx4-bF-u5f" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cYQ-rb-Uwc" secondAttribute="trailing" constant="159" id="buT-lt-p6w"/>
+                            <constraint firstItem="gx4-bF-u5f" firstAttribute="trailing" secondItem="2qZ-0z-iyI" secondAttribute="trailing" constant="30" id="fdP-Rq-Tb2"/>
+                            <constraint firstItem="2qZ-0z-iyI" firstAttribute="top" secondItem="PFg-e0-2O8" secondAttribute="bottom" constant="20" id="fxZ-5N-oZK"/>
+                            <constraint firstItem="2qZ-0z-iyI" firstAttribute="leading" secondItem="gx4-bF-u5f" secondAttribute="leading" constant="30" id="kKt-NP-TEr"/>
+                            <constraint firstItem="cYQ-rb-Uwc" firstAttribute="leading" secondItem="PFg-e0-2O8" secondAttribute="trailing" constant="5" id="rc6-TH-zbI"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="NV5-BW-lZ4"/>
+                    <navigationItem key="navigationItem" id="NV5-BW-lZ4">
+                        <barButtonItem key="rightBarButtonItem" title="로그아웃하기" id="HEG-id-g8m">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="didTapCancelButton:" destination="utB-bm-pko" id="Qny-yK-kwi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameLabel" destination="PFg-e0-2O8" id="SWx-Qf-pAw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ib-89-oXY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1172" y="-211"/>
+            <point key="canvasLocation" x="1116" y="-221.67487684729065"/>
         </scene>
         <!--Signup Email View Controller-->
         <scene sceneID="3k9-EZ-wEE">

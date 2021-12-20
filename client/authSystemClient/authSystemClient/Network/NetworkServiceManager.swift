@@ -7,13 +7,25 @@
 
 import Foundation
 
+protocol Sessionable {
+    func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
+}
+
+extension URLSession: Sessionable { }
+
 class NetworkServiceManager {
+    
+    let session: Sessionable
     let baseUrl = "http://localhost:3000"
+    
+    static let shared = NetworkServiceManager()
+    
+    private init(_ session: Sessionable = URLSession.shared ) {
+        self.session = session
+    }
     
     func handleResponse(for request: URLRequest,
                         completionHandler: @escaping ((Result<Codable, Error>) -> Void)) {
-        
-        let session = URLSession.shared
         
         let task = session.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
@@ -23,12 +35,14 @@ class NetworkServiceManager {
                 print(unwrappedResponse.statusCode)
                 
                 switch unwrappedResponse.statusCode {
-                // success
                 case 200..<300:
-                    // pass into our api
-                    print("success")
+                    #if DEBUG
+                    print("Success")
+                    #endif
                 default:
-                    print("failure")
+                    #if DEBUG
+                    print("Fail")
+                    #endif
                 }
                 
                 if let unwrappedError = error {
@@ -38,7 +52,7 @@ class NetworkServiceManager {
                 
                 if let unwrappedData = data {
                     do {
-                        if let tokenInfo = try? JSONDecoder().decode(JWT.self, from: unwrappedData) {
+                        if let tokenInfo = try? JSONDecoder().decode(UserInfo.self, from: unwrappedData) {
                             completionHandler(.success(tokenInfo))
                         } else {
                             let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: unwrappedData)
@@ -56,7 +70,7 @@ class NetworkServiceManager {
     func handleSignupResponse(for request: URLRequest,
                         completionHandler: @escaping ((Result<Codable, Error>) -> Void)) {
         
-        let session = URLSession.shared
+//        let session = URLSession.shared
         
         let task = session.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
@@ -86,7 +100,7 @@ class NetworkServiceManager {
     func handleExistResponse(for request: URLRequest,
                         completionHandler: @escaping ((Result<Codable, Error>) -> Void)) {
         
-        let session = URLSession.shared
+//        let session = URLSession.shared
         
         let task = session.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {

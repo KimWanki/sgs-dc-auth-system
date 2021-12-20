@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		7BAC8C69276F52D2003A752C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C68276F52D2003A752C /* AppDelegate.swift */; };
 		7BAC8C6B276F52D2003A752C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C6A276F52D2003A752C /* SceneDelegate.swift */; };
-		7BAC8C6D276F52D2003A752C /* LoginViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C6C276F52D2003A752C /* LoginViewContoller.swift */; };
+		7BAC8C6D276F52D2003A752C /* SigninViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C6C276F52D2003A752C /* SigninViewContoller.swift */; };
 		7BAC8C70276F52D2003A752C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC8C6E276F52D2003A752C /* Main.storyboard */; };
 		7BAC8C72276F52D4003A752C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC8C71276F52D4003A752C /* Assets.xcassets */; };
 		7BAC8C75276F52D4003A752C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC8C73276F52D4003A752C /* LaunchScreen.storyboard */; };
@@ -23,7 +23,7 @@
 		7BAC8C9B276F761B003A752C /* SigninModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C9A276F761B003A752C /* SigninModel.swift */; };
 		7BAC8C9D276F77E4003A752C /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C9C276F77E4003A752C /* NetworkingError.swift */; };
 		7BAC8C9F276F78AC003A752C /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8C9E276F78AC003A752C /* ErrorResponse.swift */; };
-		7BAC8CA1276F78D7003A752C /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CA0276F78D7003A752C /* JWT.swift */; };
+		7BAC8CA1276F78D7003A752C /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CA0276F78D7003A752C /* UserInfo.swift */; };
 		7BAC8CA3276F79B4003A752C /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CA2276F79B4003A752C /* SignupModel.swift */; };
 		7BAC8CA5276F7A19003A752C /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CA4276F7A19003A752C /* AlertManager.swift */; };
 		7BAC8CA7276F85CD003A752C /* SignupPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC8CA6276F85CD003A752C /* SignupPasswordViewController.swift */; };
@@ -36,7 +36,7 @@
 		7BAC8C65276F52D2003A752C /* authSystemClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = authSystemClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BAC8C68276F52D2003A752C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BAC8C6A276F52D2003A752C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7BAC8C6C276F52D2003A752C /* LoginViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewContoller.swift; sourceTree = "<group>"; };
+		7BAC8C6C276F52D2003A752C /* SigninViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewContoller.swift; sourceTree = "<group>"; };
 		7BAC8C6F276F52D2003A752C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7BAC8C71276F52D4003A752C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BAC8C74276F52D4003A752C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 		7BAC8C9A276F761B003A752C /* SigninModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninModel.swift; sourceTree = "<group>"; };
 		7BAC8C9C276F77E4003A752C /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		7BAC8C9E276F78AC003A752C /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
-		7BAC8CA0276F78D7003A752C /* JWT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
+		7BAC8CA0276F78D7003A752C /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		7BAC8CA2276F79B4003A752C /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
 		7BAC8CA4276F7A19003A752C /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		7BAC8CA6276F85CD003A752C /* SignupPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPasswordViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 		7BAC8C80276F609A003A752C /* Signin */ = {
 			isa = PBXGroup;
 			children = (
-				7BAC8C6C276F52D2003A752C /* LoginViewContoller.swift */,
+				7BAC8C6C276F52D2003A752C /* SigninViewContoller.swift */,
 			);
 			path = Signin;
 			sourceTree = "<group>";
@@ -191,7 +191,7 @@
 			children = (
 				7BAC8C9A276F761B003A752C /* SigninModel.swift */,
 				7BAC8CA2276F79B4003A752C /* SignupModel.swift */,
-				7BAC8CA0276F78D7003A752C /* JWT.swift */,
+				7BAC8CA0276F78D7003A752C /* UserInfo.swift */,
 				7BAC8C9E276F78AC003A752C /* ErrorResponse.swift */,
 			);
 			path = Entity;
@@ -287,7 +287,7 @@
 			files = (
 				7BAC8CA5276F7A19003A752C /* AlertManager.swift in Sources */,
 				7BAC8C90276F62DE003A752C /* CustomTextField.swift in Sources */,
-				7BAC8C6D276F52D2003A752C /* LoginViewContoller.swift in Sources */,
+				7BAC8C6D276F52D2003A752C /* SigninViewContoller.swift in Sources */,
 				7BAC8C98276F753D003A752C /* HttpMethod.swift in Sources */,
 				7BAC8C9B276F761B003A752C /* SigninModel.swift in Sources */,
 				7BAC8C69276F52D2003A752C /* AppDelegate.swift in Sources */,
@@ -303,7 +303,7 @@
 				7BAC8CA3276F79B4003A752C /* SignupModel.swift in Sources */,
 				7BAC8C96276F74FC003A752C /* NetworkServiceManager.swift in Sources */,
 				7BAC8C9F276F78AC003A752C /* ErrorResponse.swift in Sources */,
-				7BAC8CA1276F78D7003A752C /* JWT.swift in Sources */,
+				7BAC8CA1276F78D7003A752C /* UserInfo.swift in Sources */,
 				7BAC8CAD276F9EB4003A752C /* SignupNickNameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

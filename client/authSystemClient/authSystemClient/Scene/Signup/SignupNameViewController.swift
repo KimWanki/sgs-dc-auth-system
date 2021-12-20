@@ -8,7 +8,6 @@
 import UIKit
 
 class SignupNameViewController: UIViewController {
-    let networkingServiceManager = NetworkServiceManager()
     let alertManager = AlertManager()
     
     var currentInfo = [String: Any]()

@@ -8,7 +8,6 @@
 import UIKit
 
 class SignupEmailViewController: UIViewController {
-    let networkingServiceManager = NetworkServiceManager()
     let alertManager = AlertManager()
     
     lazy var emailLabel: UILabel = {
@@ -95,7 +94,7 @@ extension SignupEmailViewController {
 
 extension SignupEmailViewController {
     private func checkExisted(email: String) {
-        networkingServiceManager.request(endpoint: "/users/check/",
+        NetworkServiceManager.shared.request(endpoint: "/users/check/",
                                          checkObject: email
                                   ) { [weak self] (result) in
             switch result {

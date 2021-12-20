@@ -8,7 +8,6 @@
 import UIKit
 
 class SignupPasswordViewController: UIViewController {
-    let networkingServiceManager = NetworkServiceManager()
     let alertManager = AlertManager()
     
     var currentInfo = [String: Any]()
@@ -92,6 +91,7 @@ extension SignupPasswordViewController {
               password.count > 7
         else {
             let alert = self.alertManager.alert(message: "8자리 이상으로 설정해주세요")
+
             self.present(alert, animated: true)
             return
         }
