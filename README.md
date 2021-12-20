@@ -6,7 +6,7 @@ SGS-DC-Auth-System
 - [x] 가입, 로그인 페이지
 - [x] 인증 서버(API)
 - [x] RDBMS(MySQL)
-- [x] Password Encryption(salt + 암호화?)
+- [x] Password Encryption(salt + 암호화)
 - [x] 유지 관리 페이지(admin/backoffice)
 
 <!-- --------- 필수 기능 ----------
