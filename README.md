@@ -58,6 +58,10 @@ Auth 인증에 따른 access token의 경우, 모바일 접속 환경을 고려�
 ---
 2. **가입, 로그인 페이지**
 
+|로그인 동작|회원가입 동작|
+|---|---|
+|![로그인](https://user-images.githubusercontent.com/57824307/146747127-275869c3-3694-4237-9f7e-ce38cc687ee4.gif)|![회원가입](https://user-images.githubusercontent.com/57824307/146747136-4cc78087-898c-498b-90e9-b7e4e36f6e7d.gif)|
+
 |로그인|새 글 쓰기|로그인 실패|로그인 성공|
 |:-:|:-:|:-:|:-:|
 |<img src = "https://i.imgur.com/hookXgC.png" width = 200>|<img src = "https://i.imgur.com/THvgAQl.png" width = 200>|<img src = "https://i.imgur.com/thUQnWG.png" width = 200>|<img src = "https://i.imgur.com/Y3EGl4X.png" width = 200>|
