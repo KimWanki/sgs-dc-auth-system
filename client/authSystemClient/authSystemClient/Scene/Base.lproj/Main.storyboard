@@ -122,7 +122,7 @@
             </objects>
             <point key="canvasLocation" x="-52" y="41.379310344827587"/>
         </scene>
-        <!--Administer View Controller-->
+        <!--유저 관리자 페이지-->
         <scene sceneID="JIN-qY-exA">
             <objects>
                 <viewController id="UiH-4O-K5I" customClass="AdministerViewController" customModule="authSystemClient" customModuleProvider="target" sceneMemberID="viewController">
@@ -132,7 +132,14 @@
                         <viewLayoutGuide key="safeArea" id="Eua-WG-L3C"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="1as-aa-6xZ"/>
+                    <navigationItem key="navigationItem" title="유저 관리자 페이지" id="1as-aa-6xZ">
+                        <barButtonItem key="leftBarButtonItem" title="닫기" systemItem="stop" id="WSc-wt-Fwm">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="didTapCloseButton:" destination="UiH-4O-K5I" id="vGf-n1-9oO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DJv-ZP-paZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

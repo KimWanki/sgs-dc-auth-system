@@ -14,11 +14,10 @@ protocol Sessionable {
 extension URLSession: Sessionable { }
 
 class NetworkServiceManager {
+    static let shared = NetworkServiceManager()
     
     let session: Sessionable
     let baseUrl = "http://localhost:3000"
-    
-    static let shared = NetworkServiceManager()
     
     private init(_ session: Sessionable = URLSession.shared ) {
         self.session = session
@@ -26,13 +25,11 @@ class NetworkServiceManager {
     
     func handleResponse(for request: URLRequest,
                         completionHandler: @escaping ((Result<Codable, Error>) -> Void)) {
-        
         let task = session.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let unwrappedResponse = response as? HTTPURLResponse else { completionHandler(.failure(NetworkingError.InvalidResponse))
                     return
                 }
-                print(unwrappedResponse.statusCode)
                 
                 switch unwrappedResponse.statusCode {
                 case 200..<300:
@@ -75,7 +72,6 @@ class NetworkServiceManager {
                 guard let unwrappedResponse = response as? HTTPURLResponse else { completionHandler(.failure(NetworkingError.InvalidResponse))
                     return
                 }
-                print(unwrappedResponse.statusCode)
                 
                 switch unwrappedResponse.statusCode {
                 case 200..<300:
@@ -115,17 +111,17 @@ class NetworkServiceManager {
                 guard let unwrappedResponse = response as? HTTPURLResponse else { completionHandler(.failure(NetworkingError.InvalidResponse))
                     return
                 }
-                print(unwrappedResponse.statusCode)
                 
                 switch unwrappedResponse.statusCode {
-                // success
                 case 200..<300:
-                    // pass into our api
-                    print("success")
+                    #if DEBUG
+                    print("Success")
+                    #endif
                 default:
-                    print("failure")
+                    #if DEBUG
+                    print("Fail")
+                    #endif
                 }
-                
                 if let unwrappedError = error {
                     completionHandler(.failure(unwrappedError))
                     return
@@ -137,20 +133,14 @@ class NetworkServiceManager {
     
     func handleExistResponse(for request: URLRequest,
                         completionHandler: @escaping ((Result<Codable, Error>) -> Void)) {
-        
-//        let session = URLSession.shared
-        
         let task = session.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let unwrappedResponse = response as? HTTPURLResponse else { completionHandler(.failure(NetworkingError.InvalidResponse))
                     return
                 }
-                print(unwrappedResponse.statusCode)
                 
                 switch unwrappedResponse.statusCode {
-                // success
-                case 200..<300:
-                    // pass into our api
+                    case 200..<300:
                     completionHandler(.success(true))
                     return
                 default:

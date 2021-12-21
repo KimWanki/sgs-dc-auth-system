@@ -15,21 +15,22 @@ class AdministerViewController: UIViewController {
         return tableView
     }()
     
-    override func viewDidLoad() {
-        userTableView.dataSource = self
-        userTableView.register(UserTableViewCell.self,
-                           forCellReuseIdentifier: UserTableViewCell.reuseIdentifier)
-        requestUserList()
-        
-        self.userTableView.reloadData()
+    @IBAction func didTapCloseButton(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
     }
     
+    override func viewDidLoad() {
+        applyViewSettings()
+        requestUserList()
+    }
+     
     func requestUserList() {
         NetworkServiceManager.shared.request(endpoint: "/users") { [weak self] (result) in
             switch result {
             case .success(let info):
                 guard let info = info as? [PrivateInfo] else { return }
                 self?.userList = info
+                self?.userTableView.reloadData()
                 
             case .failure(let error):
                 #if DEBUG
@@ -52,6 +53,12 @@ extension AdministerViewController: ViewConfiguration {
             userTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
     }
+    
+    func configureViews() {
+        userTableView.dataSource = self
+        userTableView.register(UserTableViewCell.self,
+                           forCellReuseIdentifier: UserTableViewCell.reuseIdentifier)
+    }
 }
 
 extension AdministerViewController: UITableViewDataSource {
@@ -63,11 +70,8 @@ extension AdministerViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.reuseIdentifier) as? UserTableViewCell else { fatalError()}
         
         cell.configure(userList[indexPath.row])
-        
         return cell
     }
-    
-    
 }
 
 
