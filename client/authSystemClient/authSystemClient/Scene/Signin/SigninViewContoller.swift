@@ -15,8 +15,6 @@ class SigninViewController: UIViewController {
     
     override func viewDidLoad() {
         autoSigninRequest()
-        UserDefaults.standard.set("admin@smilegate.com", forKey: "adminEmail")
-        UserDefaults.standard.set("smilegate", forKey: "adminPassword")
     }
     
     @IBAction func didTapSignInButton() {
